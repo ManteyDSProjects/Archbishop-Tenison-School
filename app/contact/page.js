@@ -24,15 +24,15 @@ export default function ContactPage() {
             <dl className="mt-4 space-y-3 text-sm text-zinc-700">
               <div>
                 <dt className="font-medium text-zinc-500">Address</dt>
-                <dd>55 Kennington Oval, London, SE11 5SR</dd>
+                <dd>Selborne Road, Croydon, CR0 5JQ</dd>
               </div>
               <div>
                 <dt className="font-medium text-zinc-500">Phone</dt>
-                <dd>020 7735 4886</dd>
+                <dd>0208 688 4014</dd>
               </div>
               <div>
                 <dt className="font-medium text-zinc-500">Email</dt>
-                <dd>info@archbishoptenisons.example.uk</dd>
+                <dd>reception@archten.croydon.sch.uk</dd>
               </div>
               <div>
                 <dt className="font-medium text-zinc-500">Office Hours</dt>
@@ -44,7 +44,7 @@ export default function ContactPage() {
               <iframe
                 className="h-full w-full"
                 loading="lazy"
-                src="https://www.google.com/maps?q=Kennington+Oval,+London&output=embed"
+                src="https://www.google.com/maps?q=Selborne+Road,+Croydon,+CR0+5JQ&output=embed"
                 title="Map showing school location"
               />
             </div>

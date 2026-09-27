@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <>
       <HeroBanner
-        eyebrow="Archbishop Tenison's CE High School"
-        title="An outstanding education, rooted in Christian values"
-        subtitle="Serving the community of Kennington and beyond, we equip every student to flourish academically, spiritually, and personally."
+        eyebrow="Tenaciter"
+        title="Academic excellence for each person in a Christian community"
+        subtitle="Founded in 1714, Archbishop Tenison's is possibly the longest continuously running mixed school in the world under the same foundation as when it started."
       >
         <Link
           href="/admissions"
@@ -74,9 +74,9 @@ export default function Home() {
       <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-[#0b2545]">Our Vision</h2>
         <p className="mt-4 text-lg text-zinc-600">
-          &ldquo;Let your light shine before others.&rdquo; We nurture
-          confident, compassionate young people who are ready to make a
-          positive difference in the world.
+          We provide a strong academic foundation in a secure Christian
+          context, giving every student the confidence to contribute well
+          to a good, free, and just society.
         </p>
         <Link
           href="/christian-distinctiveness"

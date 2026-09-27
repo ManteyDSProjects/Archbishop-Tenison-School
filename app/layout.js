@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata = {
   title: "Archbishop Tenison's CE High School",
   description:
-    "A Church of England high school in Kennington, London, providing an outstanding education rooted in Christian values.",
+    "A Church of England high school in Croydon, providing an outstanding education rooted in Christian values.",
 };
 
 export default function RootLayout({ children }) {

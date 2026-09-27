@@ -9,11 +9,11 @@ export default function Footer() {
             Archbishop Tenison&apos;s CE High School
           </h3>
           <p className="mt-2 text-sm text-white/70">
-            55 Kennington Oval, London, SE11 5SR
+            Selborne Road, Croydon, CR0 5JQ
           </p>
-          <p className="mt-1 text-sm text-white/70">020 7735 4886</p>
+          <p className="mt-1 text-sm text-white/70">0208 688 4014</p>
           <p className="mt-1 text-sm text-white/70">
-            info@archbishoptenisons.example.uk
+            reception@archten.croydon.sch.uk
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function Footer() {
           </h4>
           <p className="mt-3 text-sm text-white/70">
             A Church of England school rooted in Christian values, serving
-            the community of Kennington and beyond.
+            the community of Croydon and beyond.
           </p>
           <Link
             href="/christian-distinctiveness"
