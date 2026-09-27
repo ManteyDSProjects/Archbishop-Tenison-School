@@ -1,0 +1,19 @@
+<!doctype html>
+<!--
+  Static form declaration for Netlify's build-time form scanner.
+  Netlify scans built HTML for <form data-netlify="true"> tags to
+  register form handlers. The live contact form is a client-side
+  React component (app/components/ContactForm.js), which Netlify's
+  scanner cannot see, so this static duplicate registers the same
+  fields at build time. Keep field names in sync with ContactForm.js.
+-->
+<html>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

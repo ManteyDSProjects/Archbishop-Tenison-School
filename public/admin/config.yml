@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity handles auth. Enable Identity + Git Gateway on the
+# Netlify site once deployed (Site configuration > Identity), then
+# invite staff users from there.
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "news"
+    label: "News Posts"
+    folder: "content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "vacancies"
+    label: "Vacancies"
+    folder: "content/vacancies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Contract Type", name: "contractType", widget: "string" }
+      - { label: "Salary", name: "salary", widget: "string" }
+      - { label: "Closing Date", name: "closingDate", widget: "string" }
+      - {
+          label: "Job Pack (PDF)",
+          name: "documentHref",
+          widget: "file",
+          media_folder: "/public/documents/vacancies",
+          public_folder: "/documents/vacancies",
+        }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "staff"
+    label: "Staff Profiles"
+    folder: "content/staff"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "Bio", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Term Dates"
+        name: "term_dates"
+        file: "content/settings/term-dates.md"
+        fields:
+          - label: "Dates"
+            name: "dates"
+            widget: "list"
+            fields:
+              - { label: "Term", name: "term", widget: "string" }
+              - { label: "Date Range", name: "range", widget: "string" }
