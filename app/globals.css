@@ -174,43 +174,10 @@
   --shadow-focus: 0 0 0 3px rgba(126, 160, 232, 0.4);
 }
 
-/* ---- Dark mode — system preference, unless user explicitly chose light ---- */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg-primary: #12151c;
-    --color-bg-secondary: #181c25;
-    --color-bg-tertiary: #1f2430;
-    --color-bg-inverse: var(--brand-cream-50);
-
-    --color-text-primary: #f0eee5;
-    --color-text-secondary: #c7c3b6;
-    --color-text-tertiary: #8b8878;
-    --color-text-inverse: var(--brand-ink-900);
-    --color-text-link: #7ea0e8;
-
-    --color-border-primary: #2c3140;
-    --color-border-secondary: #232734;
-    --color-border-focus: #7ea0e8;
-
-    --color-accent-primary: #4c72c4;
-    --color-accent-primary-hover: #6b8dd6;
-    --color-accent-primary-active: #3a5ba3;
-    --color-accent-secondary: #e05a4c;
-    --color-accent-gold: var(--brand-gold-300);
-
-    --color-status-success: #4caf7d;
-    --color-status-warning: var(--brand-gold-300);
-    --color-status-error: #e05a4c;
-    --color-status-info: #7ea0e8;
-
-    --color-surface-overlay: rgba(0, 0, 0, 0.6);
-
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
-    --shadow-focus: 0 0 0 3px rgba(126, 160, 232, 0.4);
-  }
-}
+/* Dark mode is opt-in only via [data-theme="dark"] above — intentionally
+   NOT auto-applied from the visitor's OS preference (prefers-color-scheme).
+   The site is meant to read as predominantly white/navy and consistent
+   for every visitor, not switch appearance based on their system theme. */
 
 /* ---- Map semantic tokens into Tailwind's theme so utilities work ---- */
 @theme inline {
