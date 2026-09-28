@@ -16,6 +16,11 @@ const NAV_LINKS = [
 
 const UTILITY_LINK = { href: "/work-with-us", label: "Work with us" };
 
+// Navy-on-navy default focus ring would be invisible here, so every
+// interactive element in this navy-chrome header gets a gold ring instead.
+const FOCUS_RING =
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-gold-300)]";
+
 function isActive(pathname, href) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
@@ -27,7 +32,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-3">
+        <Link href="/" className={`flex shrink-0 items-center gap-3 ${FOCUS_RING}`}>
           <Image
             src="/images/brand/logo.png"
             alt="Archbishop Tenison's CE High School crest"
@@ -46,7 +51,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`font-body text-sm font-semibold pb-2 transition-colors ${
+                className={`font-body text-sm font-semibold pb-2 transition-colors ${FOCUS_RING} ${
                   active
                     ? "border-b-2 border-[var(--color-accent-gold)] text-[var(--brand-cream-50)]"
                     : "border-b-2 border-transparent text-[var(--brand-cream-50)]/75 hover:text-[var(--brand-cream-50)]"
@@ -61,13 +66,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-6 lg:flex">
           <Link
             href={UTILITY_LINK.href}
-            className="font-body text-sm text-[var(--brand-cream-50)]/60 hover:text-[var(--brand-cream-50)]"
+            className={`font-body text-sm text-[var(--brand-cream-50)]/60 hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}
           >
             {UTILITY_LINK.label}
           </Link>
           <Link
             href="/admissions"
-            className="font-body rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90"
+            className={`font-body rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90 ${FOCUS_RING}`}
           >
             Book a visit
           </Link>
@@ -76,7 +81,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden"
+          className={`lg:hidden ${FOCUS_RING}`}
           aria-label="Toggle navigation menu"
           aria-expanded={open}
         >
@@ -116,7 +121,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
-                  className={`font-body rounded px-2 py-2 text-sm font-semibold ${
+                  className={`font-body rounded px-2 py-2 text-sm font-semibold ${FOCUS_RING} ${
                     active
                       ? "bg-[var(--brand-cream-50)]/10 text-[var(--brand-cream-50)]"
                       : "text-[var(--brand-cream-50)]/75 hover:bg-[var(--brand-cream-50)]/10"
@@ -129,14 +134,14 @@ export default function Navbar() {
             <Link
               href={UTILITY_LINK.href}
               onClick={() => setOpen(false)}
-              className="font-body rounded px-2 py-2 text-sm text-[var(--brand-cream-50)]/60 hover:bg-[var(--brand-cream-50)]/10"
+              className={`font-body rounded px-2 py-2 text-sm text-[var(--brand-cream-50)]/60 hover:bg-[var(--brand-cream-50)]/10 ${FOCUS_RING}`}
             >
               {UTILITY_LINK.label}
             </Link>
             <Link
               href="/admissions"
               onClick={() => setOpen(false)}
-              className="font-body mt-2 rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-center text-sm font-semibold text-[var(--brand-navy-900)]"
+              className={`font-body mt-2 rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-center text-sm font-semibold text-[var(--brand-navy-900)] ${FOCUS_RING}`}
             >
               Book a visit
             </Link>

@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Navy-on-navy default focus ring would be invisible here, so every link
+// in this navy-chrome footer gets a gold ring instead.
+const FOCUS_RING =
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-gold-300)]";
+
 export default function Footer() {
   return (
     <footer className="relative mt-auto overflow-hidden border-t-[3px] border-[var(--color-accent-gold)] bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)]">
@@ -36,17 +41,17 @@ export default function Footer() {
           </h4>
           <ul className="mt-4 space-y-2.5 font-body text-sm text-[var(--brand-cream-50)]/80">
             <li>
-              <Link href="/parents/letters" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/parents/letters" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Letters Home
               </Link>
             </li>
             <li>
-              <Link href="/parents/term-dates" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/parents/term-dates" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Term Dates
               </Link>
             </li>
             <li>
-              <Link href="/parents/policies" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/parents/policies" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Policies
               </Link>
             </li>
@@ -59,24 +64,24 @@ export default function Footer() {
           </h4>
           <ul className="mt-4 space-y-2.5 font-body text-sm text-[var(--brand-cream-50)]/80">
             <li>
-              <Link href="/curriculum" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/curriculum" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Curriculum
               </Link>
             </li>
             <li>
-              <Link href="/admissions" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/admissions" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Admissions
               </Link>
             </li>
             <li>
-              <Link href="/work-with-us" className="hover:text-[var(--brand-cream-50)]">
+              <Link href="/work-with-us" className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}>
                 Vacancies
               </Link>
             </li>
             <li>
               <Link
                 href="/christian-distinctiveness"
-                className="hover:text-[var(--brand-cream-50)]"
+                className={`hover:text-[var(--brand-cream-50)] ${FOCUS_RING}`}
               >
                 Christian Distinctiveness
               </Link>
@@ -95,7 +100,7 @@ export default function Footer() {
           </p>
           <Link
             href="/contact"
-            className="font-body mt-4 inline-block rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90"
+            className={`font-body mt-4 inline-block rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90 ${FOCUS_RING}`}
           >
             Contact us
           </Link>

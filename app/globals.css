@@ -226,3 +226,11 @@ h4 {
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
 }
+
+/* Default keyboard focus ring — navy, for light-background content.
+   Navy-chrome components (Navbar/Footer/HeroBanner) override this with a
+   gold ring instead, since navy-on-navy would be near-invisible. */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
