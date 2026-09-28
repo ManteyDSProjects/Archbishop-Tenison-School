@@ -25,7 +25,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--color-bg-inverse)] text-[var(--color-text-inverse)]">
+    <header className="sticky top-0 z-50 bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3">
           <Image
@@ -48,8 +48,8 @@ export default function Navbar() {
                 aria-current={active ? "page" : undefined}
                 className={`font-body text-sm font-semibold pb-2 transition-colors ${
                   active
-                    ? "border-b-2 border-[var(--color-accent-gold)] text-[var(--color-text-inverse)]"
-                    : "border-b-2 border-transparent text-[var(--color-text-inverse)]/75 hover:text-[var(--color-text-inverse)]"
+                    ? "border-b-2 border-[var(--color-accent-gold)] text-[var(--brand-cream-50)]"
+                    : "border-b-2 border-transparent text-[var(--brand-cream-50)]/75 hover:text-[var(--brand-cream-50)]"
                 }`}
               >
                 {link.label}
@@ -61,13 +61,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-6 lg:flex">
           <Link
             href={UTILITY_LINK.href}
-            className="font-body text-sm text-[var(--color-text-inverse)]/60 hover:text-[var(--color-text-inverse)]"
+            className="font-body text-sm text-[var(--brand-cream-50)]/60 hover:text-[var(--brand-cream-50)]"
           >
             {UTILITY_LINK.label}
           </Link>
           <Link
             href="/admissions"
-            className="font-body rounded-full bg-[var(--color-text-inverse)] px-5 py-2.5 text-sm font-semibold text-[var(--color-bg-inverse)] transition-opacity hover:opacity-90"
+            className="font-body rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90"
           >
             Book a visit
           </Link>
@@ -106,7 +106,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-[var(--color-text-inverse)]/10 bg-[var(--color-bg-inverse)] lg:hidden">
+        <nav className="border-t border-[var(--brand-cream-50)]/10 bg-[var(--brand-navy-900)] lg:hidden">
           <div className="flex flex-col gap-1 px-4 py-3">
             {NAV_LINKS.map((link) => {
               const active = isActive(pathname, link.href);
@@ -118,8 +118,8 @@ export default function Navbar() {
                   aria-current={active ? "page" : undefined}
                   className={`font-body rounded px-2 py-2 text-sm font-semibold ${
                     active
-                      ? "bg-[var(--color-text-inverse)]/10 text-[var(--color-text-inverse)]"
-                      : "text-[var(--color-text-inverse)]/75 hover:bg-[var(--color-text-inverse)]/10"
+                      ? "bg-[var(--brand-cream-50)]/10 text-[var(--brand-cream-50)]"
+                      : "text-[var(--brand-cream-50)]/75 hover:bg-[var(--brand-cream-50)]/10"
                   }`}
                 >
                   {link.label}
@@ -129,14 +129,14 @@ export default function Navbar() {
             <Link
               href={UTILITY_LINK.href}
               onClick={() => setOpen(false)}
-              className="font-body rounded px-2 py-2 text-sm text-[var(--color-text-inverse)]/60 hover:bg-[var(--color-text-inverse)]/10"
+              className="font-body rounded px-2 py-2 text-sm text-[var(--brand-cream-50)]/60 hover:bg-[var(--brand-cream-50)]/10"
             >
               {UTILITY_LINK.label}
             </Link>
             <Link
               href="/admissions"
               onClick={() => setOpen(false)}
-              className="font-body mt-2 rounded-full bg-[var(--color-text-inverse)] px-5 py-2.5 text-center text-sm font-semibold text-[var(--color-bg-inverse)]"
+              className="font-body mt-2 rounded-full bg-[var(--brand-cream-50)] px-5 py-2.5 text-center text-sm font-semibold text-[var(--brand-navy-900)]"
             >
               Book a visit
             </Link>

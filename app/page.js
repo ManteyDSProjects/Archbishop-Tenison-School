@@ -22,37 +22,43 @@ export default function Home() {
       >
         <Link
           href="/admissions"
-          className="inline-flex items-center rounded-md bg-[#c9a961] px-6 py-3 text-sm font-semibold text-[#0b2545] shadow-sm transition-colors hover:bg-[#c9a961]/90"
+          className="font-body inline-flex items-center rounded-full bg-[var(--brand-cream-50)] px-6 py-3 text-sm font-semibold text-[var(--brand-navy-900)] transition-opacity hover:opacity-90"
         >
           Apply for a place
         </Link>
       </HeroBanner>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-[#0b2545]">Quick Links</h2>
+        <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
+          Quick Links
+        </h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {QUICK_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group rounded-lg border border-zinc-200 p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="group border border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)] p-6 transition-colors hover:border-[var(--color-accent-primary)]"
             >
-              <h3 className="font-semibold text-[#0b2545] group-hover:text-[#c9a961]">
+              <h3 className="font-body font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
                 {link.label}
               </h3>
-              <p className="mt-1 text-sm text-zinc-600">{link.desc}</p>
+              <p className="font-body mt-1 text-sm text-[var(--color-text-secondary)]">
+                {link.desc}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="bg-zinc-50 py-16">
+      <section className="bg-[var(--color-bg-tertiary)] py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-[#0b2545]">Latest News</h2>
+            <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
+              Latest News
+            </h2>
             <Link
               href="/news"
-              className="text-sm font-medium text-[#0b2545] hover:text-[#c9a961]"
+              className="font-body text-sm font-medium text-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary-hover)]"
             >
               View all news →
             </Link>
@@ -72,15 +78,17 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-[#0b2545]">Our Vision</h2>
-        <p className="mt-4 text-lg text-zinc-600">
+        <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
+          Our Vision
+        </h2>
+        <p className="font-body mt-4 text-lg text-[var(--color-text-secondary)]">
           We provide a strong academic foundation in a secure Christian
           context, giving every student the confidence to contribute well
           to a good, free, and just society.
         </p>
         <Link
           href="/christian-distinctiveness"
-          className="mt-4 inline-block text-sm font-medium text-[#0b2545] underline hover:text-[#c9a961]"
+          className="font-body mt-4 inline-block text-sm font-medium text-[var(--color-accent-primary)] underline hover:text-[var(--color-accent-primary-hover)]"
         >
           Read about our Christian distinctiveness
         </Link>

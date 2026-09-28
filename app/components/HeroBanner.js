@@ -1,36 +1,45 @@
+import Image from "next/image";
+
 export default function HeroBanner({
+  eyebrow,
   title,
   subtitle,
-  eyebrow,
   children,
   compact = false,
 }) {
   return (
     <section
-      className={`relative overflow-hidden bg-[#0b2545] text-white ${
-        compact ? "py-16" : "py-24 sm:py-32"
+      className={`bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)] ${
+        compact ? "py-14" : "py-16 sm:py-20"
       }`}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%, #c9a961 0%, transparent 40%)",
-        }}
-      />
-      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        {eyebrow && (
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#c9a961]">
-            {eyebrow}
-          </p>
-        )}
-        <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mt-4 text-lg text-white/80">{subtitle}</p>
-        )}
-        {children && <div className="mt-8">{children}</div>}
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:px-8">
+        <div className="max-w-2xl">
+          {eyebrow && (
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-gold)]">
+              {eyebrow}
+            </p>
+          )}
+          <h1 className="font-display mt-4 text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
+          <div className="mt-7 h-px w-full bg-[var(--brand-cream-50)]/20" />
+          {subtitle && (
+            <p className="font-body mt-7 max-w-[62ch] text-base leading-relaxed text-[var(--brand-cream-50)]/75">
+              {subtitle}
+            </p>
+          )}
+          {children && <div className="mt-8">{children}</div>}
+        </div>
+
+        <Image
+          src="/images/brand/logo.png"
+          alt="Archbishop Tenison's CE High School crest"
+          width={280}
+          height={90}
+          className="h-24 w-auto shrink-0 lg:mt-2"
+          priority
+        />
       </div>
     </section>
   );
