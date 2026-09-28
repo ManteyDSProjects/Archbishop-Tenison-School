@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HeroBanner from "../components/HeroBanner";
 
 export const metadata = {
@@ -13,6 +14,16 @@ export default function AboutPage() {
         title="310 years of Tenaciter"
         subtitle="Possibly the longest continuously running mixed school in the world under the same foundation as when it started."
       />
+
+      <div className="mx-auto max-w-5xl px-4 pt-12 sm:px-6 lg:px-8">
+        <Image
+          src="/images/photography/staff.jpg"
+          alt="Senior leaders at Archbishop Tenison's CE High School"
+          width={1200}
+          height={800}
+          className="h-auto w-full border border-[var(--color-border-primary)] object-cover"
+        />
+      </div>
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="font-body space-y-10 text-[var(--color-text-secondary)]">
