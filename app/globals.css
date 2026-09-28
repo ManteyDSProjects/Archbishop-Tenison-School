@@ -109,9 +109,9 @@
   --brand-ink-700: #3a3833;
 
   /* ---- Semantic color tokens — light mode (default) ---- */
-  --color-bg-primary: var(--brand-cream-50);
+  --color-bg-primary: #ffffff;
   --color-bg-secondary: #ffffff;
-  --color-bg-tertiary: var(--brand-cream-100);
+  --color-bg-tertiary: #f5f6f8;
   --color-bg-inverse: var(--brand-navy-900);
 
   --color-text-primary: var(--brand-ink-900);
@@ -120,8 +120,8 @@
   --color-text-inverse: var(--brand-cream-50);
   --color-text-link: var(--brand-navy-700);
 
-  --color-border-primary: #ded8c8;
-  --color-border-secondary: #ece7da;
+  --color-border-primary: #dcdfe4;
+  --color-border-secondary: #eceef1;
   --color-border-focus: var(--brand-navy-500);
 
   --color-accent-primary: var(--brand-navy-700);
