@@ -1,68 +1,108 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto bg-[#0b2545] text-white">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
+    <footer className="relative mt-auto overflow-hidden border-t-[3px] border-[var(--color-accent-gold)] bg-[var(--color-bg-inverse)] text-[var(--color-text-inverse)]">
+      <Image
+        src="/images/brand/crest-watermark.png"
+        alt=""
+        aria-hidden="true"
+        width={340}
+        height={400}
+        className="pointer-events-none absolute -bottom-16 -right-12 h-[340px] w-auto opacity-[0.08] invert"
+      />
+
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
-          <h3 className="text-lg font-semibold">
-            Archbishop Tenison&apos;s CE High School
-          </h3>
-          <p className="mt-2 text-sm text-white/70">
+          <Image
+            src="/images/brand/logo.png"
+            alt="Archbishop Tenison's CE High School crest"
+            width={120}
+            height={40}
+            className="mb-4 h-9 w-auto"
+          />
+          <p className="font-body text-sm text-[var(--color-text-inverse)]/70">
             Selborne Road, Croydon, CR0 5JQ
           </p>
-          <p className="mt-1 text-sm text-white/70">0208 688 4014</p>
-          <p className="mt-1 text-sm text-white/70">
-            reception@archten.croydon.sch.uk
+          <p className="font-body mt-1 text-sm text-[var(--color-text-inverse)]/70">
+            Tenaciter — steadfastly
           </p>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#c9a961]">
-            Quick Links
+          <h4 className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-gold)]">
+            For parents
           </h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/70">
+          <ul className="mt-4 space-y-2.5 font-body text-sm text-[var(--color-text-inverse)]/80">
             <li>
-              <Link href="/admissions" className="hover:text-white">
-                Admissions
+              <Link href="/parents/letters" className="hover:text-[var(--color-text-inverse)]">
+                Letters Home
               </Link>
             </li>
             <li>
-              <Link href="/vacancies" className="hover:text-white">
-                Vacancies
+              <Link href="/parents/term-dates" className="hover:text-[var(--color-text-inverse)]">
+                Term Dates
               </Link>
             </li>
             <li>
-              <Link href="/information" className="hover:text-white">
-                Term Dates &amp; Policies
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-white">
-                Contact Us
+              <Link href="/parents/policies" className="hover:text-[var(--color-text-inverse)]">
+                Policies
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#c9a961]">
-            Our Faith
+          <h4 className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-gold)]">
+            School
           </h4>
-          <p className="mt-3 text-sm text-white/70">
-            A Church of England school rooted in Christian values, serving
-            the community of Croydon and beyond.
+          <ul className="mt-4 space-y-2.5 font-body text-sm text-[var(--color-text-inverse)]/80">
+            <li>
+              <Link href="/curriculum" className="hover:text-[var(--color-text-inverse)]">
+                Curriculum
+              </Link>
+            </li>
+            <li>
+              <Link href="/admissions" className="hover:text-[var(--color-text-inverse)]">
+                Admissions
+              </Link>
+            </li>
+            <li>
+              <Link href="/work-with-us" className="hover:text-[var(--color-text-inverse)]">
+                Vacancies
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/christian-distinctiveness"
+                className="hover:text-[var(--color-text-inverse)]"
+              >
+                Christian Distinctiveness
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-gold)]">
+            Stay in touch
+          </h4>
+          <p className="font-body mt-4 text-sm text-[var(--color-text-inverse)]/70">
+            0208 688 4014
+            <br />
+            reception@archten.croydon.sch.uk
           </p>
           <Link
-            href="/christian-distinctiveness"
-            className="mt-2 inline-block text-sm font-medium text-[#c9a961] hover:underline"
+            href="/contact"
+            className="font-body mt-4 inline-block rounded-full bg-[var(--color-text-inverse)] px-5 py-2.5 text-sm font-semibold text-[var(--color-bg-inverse)] transition-opacity hover:opacity-90"
           >
-            Learn more
+            Contact us
           </Link>
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-white/50 sm:px-6 lg:px-8">
+      <div className="relative border-t border-[var(--color-text-inverse)]/15 px-4 py-4 text-center font-body text-xs text-[var(--color-text-inverse)]/50 sm:px-6 lg:px-8">
         © {new Date().getFullYear()} Archbishop Tenison&apos;s CE High School.
         All rights reserved.
       </div>

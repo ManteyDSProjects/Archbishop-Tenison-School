@@ -1,46 +1,77 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/admissions", label: "Admissions" },
   { href: "/curriculum", label: "Curriculum" },
-  { href: "/information", label: "Information" },
-  { href: "/christian-distinctiveness", label: "Christian Distinctiveness" },
+  { href: "/parents", label: "Parents" },
   { href: "/news", label: "News" },
-  { href: "/vacancies", label: "Vacancies" },
-  { href: "/staff-recruitment", label: "Staff Recruitment" },
   { href: "/contact", label: "Contact" },
 ];
 
+const UTILITY_LINK = { href: "/work-with-us", label: "Work with us" };
+
+function isActive(pathname, href) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0b2545] text-white shadow-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="text-lg font-semibold tracking-tight">
-            Archbishop Tenison&apos;s
-          </span>
-          <span className="hidden text-sm text-[#c9a961] sm:inline">
-            CE High School
-          </span>
+    <header className="sticky top-0 z-50 bg-[var(--color-bg-inverse)] text-[var(--color-text-inverse)]">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
+          <Image
+            src="/images/brand/logo.png"
+            alt="Archbishop Tenison's CE High School crest"
+            width={140}
+            height={45}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
-        <nav className="hidden lg:flex lg:items-center lg:gap-6">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/90 transition-colors hover:text-[#c9a961]"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-7 lg:flex">
+          {NAV_LINKS.map((link) => {
+            const active = isActive(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`font-body text-sm font-semibold pb-2 transition-colors ${
+                  active
+                    ? "border-b-2 border-[var(--color-accent-gold)] text-[var(--color-text-inverse)]"
+                    : "border-b-2 border-transparent text-[var(--color-text-inverse)]/75 hover:text-[var(--color-text-inverse)]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
+
+        <div className="hidden items-center gap-6 lg:flex">
+          <Link
+            href={UTILITY_LINK.href}
+            className="font-body text-sm text-[var(--color-text-inverse)]/60 hover:text-[var(--color-text-inverse)]"
+          >
+            {UTILITY_LINK.label}
+          </Link>
+          <Link
+            href="/admissions"
+            className="font-body rounded-full bg-[var(--color-text-inverse)] px-5 py-2.5 text-sm font-semibold text-[var(--color-bg-inverse)] transition-opacity hover:opacity-90"
+          >
+            Book a visit
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -75,18 +106,40 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-white/10 bg-[#0b2545] lg:hidden">
+        <nav className="border-t border-[var(--color-text-inverse)]/10 bg-[var(--color-bg-inverse)] lg:hidden">
           <div className="flex flex-col gap-1 px-4 py-3">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded px-2 py-2 text-sm font-medium text-white/90 hover:bg-white/10"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`font-body rounded px-2 py-2 text-sm font-semibold ${
+                    active
+                      ? "bg-[var(--color-text-inverse)]/10 text-[var(--color-text-inverse)]"
+                      : "text-[var(--color-text-inverse)]/75 hover:bg-[var(--color-text-inverse)]/10"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href={UTILITY_LINK.href}
+              onClick={() => setOpen(false)}
+              className="font-body rounded px-2 py-2 text-sm text-[var(--color-text-inverse)]/60 hover:bg-[var(--color-text-inverse)]/10"
+            >
+              {UTILITY_LINK.label}
+            </Link>
+            <Link
+              href="/admissions"
+              onClick={() => setOpen(false)}
+              className="font-body mt-2 rounded-full bg-[var(--color-text-inverse)] px-5 py-2.5 text-center text-sm font-semibold text-[var(--color-bg-inverse)]"
+            >
+              Book a visit
+            </Link>
           </div>
         </nav>
       )}
