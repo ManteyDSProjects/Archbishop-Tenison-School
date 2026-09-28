@@ -1,66 +1,66 @@
+import { Suspense } from "react";
+import Link from "next/link";
 import HeroBanner from "../components/HeroBanner";
-import PDFLink from "../components/PDFLink";
+import FilterBar from "../components/FilterBar";
+import { getAllCurriculum } from "@/lib/content";
 
 export const metadata = {
   title: "Curriculum | Archbishop Tenison's CE High School",
 };
 
-const SUBJECTS = [
-  "English", "Mathematics", "Science", "Religious Education",
-  "Modern Foreign Languages", "History", "Geography", "Art & Design",
-  "Music", "Physical Education", "Computing", "Design & Technology",
+const KEY_STAGE_OPTIONS = [
+  { value: "KS3", label: "KS3" },
+  { value: "KS4", label: "KS4" },
+  { value: "Sixth Form", label: "Sixth Form" },
 ];
 
-export default function CurriculumPage() {
+export default function CurriculumPage({ searchParams }) {
+  const stage = searchParams?.stage;
+  const allSubjects = getAllCurriculum();
+  const subjects = stage
+    ? allSubjects.filter((s) => (s.keyStage || []).includes(stage))
+    : allSubjects;
+
   return (
     <>
       <HeroBanner
         compact
         eyebrow="Curriculum"
-        title="A Broad and Balanced Education"
-        subtitle="Our curriculum is designed to challenge, inspire, and prepare every student for their next steps."
+        title="A broad and balanced education"
+        subtitle="Every subject follows the same Intent, Implementation and Impact structure — what we set out to achieve, how we teach it, and the difference it makes."
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-[#0b2545]">
-          Subjects We Teach
-        </h2>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {SUBJECTS.map((subject) => (
-            <div
-              key={subject}
-              className="rounded-md border border-zinc-200 px-4 py-3 text-center text-sm font-medium text-zinc-700"
-            >
-              {subject}
-            </div>
-          ))}
-        </div>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <Suspense fallback={null}>
+          <FilterBar
+            paramName="stage"
+            options={KEY_STAGE_OPTIONS}
+            allLabel="All key stages"
+          />
+        </Suspense>
 
-        <h2 className="mt-12 text-2xl font-bold text-[#0b2545]">
-          Key Stage 3 and 4
-        </h2>
-        <p className="mt-4 text-zinc-700">
-          Students follow a broad curriculum through Key Stage 3, building
-          strong foundations before selecting GCSE options at the end of
-          Year 9. We are committed to the principles of the EBacc while
-          offering a range of creative and vocational subjects.
-        </p>
-
-        <div className="mt-10 rounded-lg border border-zinc-200 bg-zinc-50 p-6">
-          <h3 className="font-semibold text-[#0b2545]">Curriculum Documents</h3>
-          <ul className="mt-4 space-y-3">
-            <li>
-              <PDFLink href="/documents/curriculum-overview.pdf">
-                Curriculum Overview by Year Group
-              </PDFLink>
-            </li>
-            <li>
-              <PDFLink href="/documents/gcse-options-booklet.pdf">
-                GCSE Options Booklet
-              </PDFLink>
-            </li>
-          </ul>
-        </div>
+        {subjects.length === 0 ? (
+          <p className="font-body mt-10 text-[var(--color-text-secondary)]">
+            No subjects found for this key stage.
+          </p>
+        ) : (
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {subjects.map((subject) => (
+              <Link
+                key={subject.slug}
+                href={`/curriculum/${subject.slug}`}
+                className="group border border-[var(--color-border-primary)] p-6 transition-colors hover:border-[var(--color-accent-primary)]"
+              >
+                <h3 className="font-display text-lg font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
+                  {subject.title}
+                </h3>
+                <p className="font-body mt-2 text-xs uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  {(subject.keyStage || []).join(" · ")}
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
     </>
   );

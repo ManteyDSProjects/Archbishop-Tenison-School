@@ -37,7 +37,7 @@ export default function HeroBanner({
           alt="Archbishop Tenison's CE High School crest"
           width={280}
           height={90}
-          className="h-24 w-auto shrink-0 lg:mt-2"
+          className="h-24 w-auto max-w-[280px] shrink-0 self-start lg:mt-2"
           priority
         />
       </div>

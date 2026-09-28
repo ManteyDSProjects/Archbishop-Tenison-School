@@ -1,26 +1,26 @@
 import HeroBanner from "../components/HeroBanner";
 import VacancyCard from "../components/VacancyCard";
-import { getAllVacancies } from "@/lib/content";
+import { getOpenVacancies } from "@/lib/content";
 
 export const metadata = {
-  title: "Vacancies | Archbishop Tenison's CE High School",
+  title: "Work with us | Archbishop Tenison's CE High School",
 };
 
-export default function VacanciesPage() {
-  const vacancies = getAllVacancies();
+export default function WorkWithUsPage() {
+  const vacancies = getOpenVacancies();
 
   return (
     <>
       <HeroBanner
         compact
-        eyebrow="Vacancies"
-        title="Current Job Opportunities"
+        eyebrow="Work with us"
+        title="Join our staff team"
         subtitle="We are always keen to hear from talented people who share our vision and values."
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         {vacancies.length === 0 ? (
-          <p className="text-zinc-600">
+          <p className="font-body text-[var(--color-text-secondary)]">
             There are no current vacancies. Please check back soon.
           </p>
         ) : (
@@ -38,7 +38,7 @@ export default function VacanciesPage() {
           </div>
         )}
 
-        <div className="mt-10 rounded-lg border border-zinc-200 bg-zinc-50 p-6 text-sm text-zinc-600">
+        <div className="font-body mt-12 border border-[var(--color-border-primary)] p-6 text-sm text-[var(--color-text-secondary)]">
           Archbishop Tenison&apos;s CE High School is committed to
           safeguarding and promoting the welfare of children. All
           appointments are subject to satisfactory references and an

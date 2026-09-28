@@ -1,5 +1,11 @@
 import PDFLink from "./PDFLink";
 
+function closingSoon(closingDate) {
+  if (!closingDate) return false;
+  const days = (new Date(closingDate) - Date.now()) / (1000 * 60 * 60 * 24);
+  return days >= 0 && days <= 7;
+}
+
 export default function VacancyCard({
   title,
   contractType,
@@ -7,34 +13,47 @@ export default function VacancyCard({
   salary,
   documentHref,
 }) {
+  const soon = closingSoon(closingDate);
+
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
-      <h3 className="text-lg font-semibold text-[#0b2545]">{title}</h3>
-      <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-zinc-600">
-        {contractType && (
-          <>
-            <dt className="font-medium text-zinc-500">Contract</dt>
-            <dd>{contractType}</dd>
-          </>
-        )}
-        {salary && (
-          <>
-            <dt className="font-medium text-zinc-500">Salary</dt>
-            <dd>{salary}</dd>
-          </>
+    <div className="border border-[var(--color-border-primary)] border-t-[3px] border-t-[var(--brand-navy-700)] bg-[var(--color-bg-secondary)] p-9">
+      <p className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-secondary)]">
+        {contractType || "Vacancy"}
+      </p>
+      <h3 className="font-display mt-3 text-xl font-medium text-[var(--color-text-primary)]">
+        {title}
+      </h3>
+      {salary && (
+        <p className="font-body mt-1.5 text-sm text-[var(--color-text-secondary)]">
+          {salary}
+        </p>
+      )}
+
+      <div className="mt-6 flex items-center justify-between gap-4 border-t border-[var(--color-border-secondary)] pt-4">
+        {documentHref ? (
+          <a
+            href={documentHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-sm font-semibold text-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary-hover)]"
+          >
+            View job pack (PDF)
+          </a>
+        ) : (
+          <span />
         )}
         {closingDate && (
-          <>
-            <dt className="font-medium text-zinc-500">Closing date</dt>
-            <dd>{closingDate}</dd>
-          </>
+          <span
+            className={`font-body text-xs font-semibold ${
+              soon
+                ? "text-[var(--color-accent-secondary)]"
+                : "text-[var(--color-text-secondary)]"
+            }`}
+          >
+            Closes {closingDate}
+          </span>
         )}
-      </dl>
-      {documentHref && (
-        <div className="mt-4">
-          <PDFLink href={documentHref}>View job pack</PDFLink>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
