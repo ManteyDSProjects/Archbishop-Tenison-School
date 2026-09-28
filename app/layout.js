@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`h-full antialiased ${fraunces.variable} ${publicSans.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-body">
+      <body className="min-h-full flex min-w-0 flex-col overflow-x-hidden bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-body">
         <Navbar />
-        <main className="flex flex-1 flex-col">{children}</main>
+        <main className="flex min-w-0 flex-1 flex-col">{children}</main>
         <Footer />
         <Script
           src="https://identity.netlify.com/v1/netlify-identity-widget.js"
