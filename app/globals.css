@@ -1,18 +1,261 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Archbishop Tenison's — Design Tokens
+   Derived from the school's real coat of arms (heraldic blue, crimson,
+   gold) per .design/school-website-redesign/DESIGN_BRIEF.md.
+   Philosophy: modern editorial institutional — confident serif display
+   type over a clean grotesk body, restrained gold used only as accent.
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ---- Spacing scale (8px base — editorial/spacious per brief) ---- */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.5rem; /* 24px */
+  --space-6: 2rem; /* 32px */
+  --space-7: 3rem; /* 48px */
+  --space-8: 4rem; /* 64px */
+  --space-9: 6rem; /* 96px */
+  --space-10: 8rem; /* 128px */
+  --space-11: 12rem; /* 192px */
+  --space-12: 16rem; /* 256px */
+
+  /* ---- Typography ---- */
+  --font-family-display: var(--font-display), "Fraunces", ui-serif, Georgia,
+    serif;
+  --font-family-body: var(--font-body), "Public Sans", ui-sans-serif,
+    system-ui, -apple-system, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, monospace;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.375rem; /* 22px */
+  --font-size-xl: 1.75rem; /* 28px */
+  --font-size-2xl: 2.25rem; /* 36px */
+  --font-size-3xl: 3rem; /* 48px */
+  --font-size-4xl: 4rem; /* 64px — hero/display */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.08em;
+
+  /* ---- Layout ---- */
+  --max-width-content: 65ch;
+  --max-width-wide: 88rem;
+  --max-width-page: 100rem;
+
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(24, 26, 20, 0.06);
+  --shadow-md: 0 4px 12px rgba(24, 26, 20, 0.08);
+  --shadow-lg: 0 16px 40px rgba(24, 26, 20, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(24, 64, 152, 0.35);
+
+  /* ---- Motion ---- */
+  --duration-instant: 50ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-in: cubic-bezier(0.4, 0, 1, 1);
+  --easing-out: cubic-bezier(0, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Breakpoints (reference only — Tailwind handles actual queries) ---- */
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ---- Brand palette (sampled from the real crest) ---- */
+  --brand-navy-900: #0f2757;
+  --brand-navy-700: #184098; /* sampled heraldic blue */
+  --brand-navy-500: #2955b8;
+  --brand-navy-100: #e6ebf7;
+
+  --brand-crimson-700: #a11007;
+  --brand-crimson-600: #d01810; /* sampled crest red */
+  --brand-crimson-100: #f9e2df;
+
+  --brand-gold-700: #a3800f;
+  --brand-gold-600: #c9a227; /* refined from sampled #f8e800 — deepened for elegance, kept for accents only */
+  --brand-gold-300: #e8cf7a;
+  --brand-crest-gold: #f8e800; /* raw sampled gold — logo/crest-matching only, never for text or large fills */
+
+  --brand-cream-50: #faf8f2;
+  --brand-cream-100: #f4f0e6;
+  --brand-ink-900: #1c1b18;
+  --brand-ink-700: #3a3833;
+
+  /* ---- Semantic color tokens — light mode (default) ---- */
+  --color-bg-primary: var(--brand-cream-50);
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: var(--brand-cream-100);
+  --color-bg-inverse: var(--brand-navy-900);
+
+  --color-text-primary: var(--brand-ink-900);
+  --color-text-secondary: var(--brand-ink-700);
+  --color-text-tertiary: #7a776e;
+  --color-text-inverse: var(--brand-cream-50);
+  --color-text-link: var(--brand-navy-700);
+
+  --color-border-primary: #ded8c8;
+  --color-border-secondary: #ece7da;
+  --color-border-focus: var(--brand-navy-500);
+
+  --color-accent-primary: var(--brand-navy-700);
+  --color-accent-primary-hover: var(--brand-navy-900);
+  --color-accent-primary-active: var(--brand-navy-900);
+  --color-accent-secondary: var(--brand-crimson-600);
+  --color-accent-gold: var(--brand-gold-600);
+
+  --color-status-success: #2f7a4f;
+  --color-status-warning: var(--brand-gold-700);
+  --color-status-error: var(--brand-crimson-700);
+  --color-status-info: var(--brand-navy-700);
+
+  --color-surface-overlay: rgba(15, 39, 87, 0.45);
 }
 
+/* ---- Dark mode — manual toggle ---- */
+[data-theme="dark"] {
+  --color-bg-primary: #12151c;
+  --color-bg-secondary: #181c25;
+  --color-bg-tertiary: #1f2430;
+  --color-bg-inverse: var(--brand-cream-50);
+
+  --color-text-primary: #f0eee5;
+  --color-text-secondary: #c7c3b6;
+  --color-text-tertiary: #8b8878;
+  --color-text-inverse: var(--brand-ink-900);
+  --color-text-link: #7ea0e8;
+
+  --color-border-primary: #2c3140;
+  --color-border-secondary: #232734;
+  --color-border-focus: #7ea0e8;
+
+  --color-accent-primary: #4c72c4;
+  --color-accent-primary-hover: #6b8dd6;
+  --color-accent-primary-active: #3a5ba3;
+  --color-accent-secondary: #e05a4c;
+  --color-accent-gold: var(--brand-gold-300);
+
+  --color-status-success: #4caf7d;
+  --color-status-warning: var(--brand-gold-300);
+  --color-status-error: #e05a4c;
+  --color-status-info: #7ea0e8;
+
+  --color-surface-overlay: rgba(0, 0, 0, 0.6);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-focus: 0 0 0 3px rgba(126, 160, 232, 0.4);
+}
+
+/* ---- Dark mode — system preference, unless user explicitly chose light ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg-primary: #12151c;
+    --color-bg-secondary: #181c25;
+    --color-bg-tertiary: #1f2430;
+    --color-bg-inverse: var(--brand-cream-50);
+
+    --color-text-primary: #f0eee5;
+    --color-text-secondary: #c7c3b6;
+    --color-text-tertiary: #8b8878;
+    --color-text-inverse: var(--brand-ink-900);
+    --color-text-link: #7ea0e8;
+
+    --color-border-primary: #2c3140;
+    --color-border-secondary: #232734;
+    --color-border-focus: #7ea0e8;
+
+    --color-accent-primary: #4c72c4;
+    --color-accent-primary-hover: #6b8dd6;
+    --color-accent-primary-active: #3a5ba3;
+    --color-accent-secondary: #e05a4c;
+    --color-accent-gold: var(--brand-gold-300);
+
+    --color-status-success: #4caf7d;
+    --color-status-warning: var(--brand-gold-300);
+    --color-status-error: #e05a4c;
+    --color-status-info: #7ea0e8;
+
+    --color-surface-overlay: rgba(0, 0, 0, 0.6);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+    --shadow-focus: 0 0 0 3px rgba(126, 160, 232, 0.4);
+  }
+}
+
+/* ---- Map semantic tokens into Tailwind's theme so utilities work ---- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-inverse: var(--color-bg-inverse);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-text-link: var(--color-text-link);
+
+  --color-border-primary: var(--color-border-primary);
+  --color-border-secondary: var(--color-border-secondary);
+  --color-border-focus: var(--color-border-focus);
+
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-primary-hover: var(--color-accent-primary-hover);
+  --color-accent-secondary: var(--color-accent-secondary);
+  --color-accent-gold: var(--color-accent-gold);
+
+  --color-status-success: var(--color-status-success);
+  --color-status-warning: var(--color-status-warning);
+  --color-status-error: var(--color-status-error);
+  --color-status-info: var(--color-status-info);
+
+  --font-display: var(--font-family-display);
+  --font-body: var(--font-family-body);
+  --font-mono: var(--font-family-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  line-height: var(--line-height-normal);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family-display);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
