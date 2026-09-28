@@ -116,7 +116,7 @@
 
   --color-text-primary: var(--brand-ink-900);
   --color-text-secondary: var(--brand-ink-700);
-  --color-text-tertiary: #7a776e;
+  --color-text-tertiary: #6b6860; /* darkened from #7a776e — was ~4.48:1 on white, just under WCAG AA 4.5:1 for normal text */
   --color-text-inverse: var(--brand-cream-50);
   --color-text-link: var(--brand-navy-700);
 
