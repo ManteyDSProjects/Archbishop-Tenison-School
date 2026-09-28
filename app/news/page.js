@@ -14,13 +14,15 @@ export default function NewsListPage() {
       <HeroBanner
         compact
         eyebrow="News"
-        title="Latest News from Archbishop Tenison's"
+        title="Latest news from Archbishop Tenison's"
         subtitle="Stay up to date with what's happening across our school community."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {news.length === 0 ? (
-          <p className="text-zinc-600">No news posts yet. Check back soon.</p>
+          <p className="font-body text-[var(--color-text-secondary)]">
+            No news posts yet. Check back soon.
+          </p>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {news.map((item) => (

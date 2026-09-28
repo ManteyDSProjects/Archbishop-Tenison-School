@@ -10,6 +10,11 @@ function encode(data) {
     .join("&");
 }
 
+const FIELD_CLASS =
+  "font-body mt-1 block w-full border border-[var(--color-border-primary)] px-3 py-2 text-[var(--color-text-primary)] focus:border-[var(--color-border-focus)] focus:outline-none focus:ring-1 focus:ring-[var(--color-border-focus)]";
+const LABEL_CLASS =
+  "font-body block text-sm font-medium text-[var(--color-text-primary)]";
+
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
   const [form, setForm] = useState({
@@ -41,7 +46,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-green-800">
+      <div className="font-body border border-[var(--color-status-success)] p-6 text-[var(--color-status-success)]">
         Thank you. Your message has been sent and we will be in touch
         shortly.
       </div>
@@ -58,7 +63,7 @@ export default function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="name" className={LABEL_CLASS}>
           Full name
         </label>
         <input
@@ -68,12 +73,12 @@ export default function ContactForm() {
           required
           value={form.name}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-[#0b2545] focus:outline-none focus:ring-1 focus:ring-[#0b2545]"
+          className={FIELD_CLASS}
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="email" className={LABEL_CLASS}>
           Email address
         </label>
         <input
@@ -83,12 +88,12 @@ export default function ContactForm() {
           required
           value={form.email}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-[#0b2545] focus:outline-none focus:ring-1 focus:ring-[#0b2545]"
+          className={FIELD_CLASS}
         />
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="phone" className={LABEL_CLASS}>
           Phone number (optional)
         </label>
         <input
@@ -97,15 +102,12 @@ export default function ContactForm() {
           type="tel"
           value={form.phone}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-[#0b2545] focus:outline-none focus:ring-1 focus:ring-[#0b2545]"
+          className={FIELD_CLASS}
         />
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-zinc-700"
-        >
+        <label htmlFor="message" className={LABEL_CLASS}>
           Message
         </label>
         <textarea
@@ -115,12 +117,12 @@ export default function ContactForm() {
           required
           value={form.message}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-2 shadow-sm focus:border-[#0b2545] focus:outline-none focus:ring-1 focus:ring-[#0b2545]"
+          className={FIELD_CLASS}
         />
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-600">
+        <p className="font-body text-sm text-[var(--color-status-error)]">
           Something went wrong sending your message. Please try again or
           call the school office directly.
         </p>
@@ -129,7 +131,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center rounded-md bg-[#0b2545] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0b2545]/90 disabled:opacity-60"
+        className="font-body inline-flex items-center rounded-full bg-[var(--brand-navy-900)] px-6 py-2.5 text-sm font-semibold text-[var(--brand-cream-50)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {status === "submitting" ? "Sending..." : "Send message"}
       </button>
