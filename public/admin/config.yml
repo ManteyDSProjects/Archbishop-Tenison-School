@@ -53,6 +53,112 @@ collections:
       - { label: "Photo", name: "photo", widget: "image", required: false }
       - { label: "Bio", name: "body", widget: "markdown" }
 
+  - name: "curriculum"
+    label: "Curriculum Subjects"
+    folder: "content/curriculum"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Subject Name", name: "title", widget: "string" }
+      - {
+          label: "Key Stage",
+          name: "keyStage",
+          widget: "select",
+          multiple: true,
+          options: ["KS3", "KS4", "Sixth Form"],
+        }
+      - { label: "Overview", name: "body", widget: "markdown" }
+      - {
+          label: "Subject Overview Document (PDF)",
+          name: "documentHref",
+          widget: "file",
+          required: false,
+          media_folder: "/public/documents/curriculum",
+          public_folder: "/documents/curriculum",
+        }
+      - {
+          label: "Display Order",
+          name: "order",
+          widget: "number",
+          required: false,
+        }
+
+  - name: "letters"
+    label: "Letters Home"
+    folder: "content/letters"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Year Group",
+          name: "yearGroup",
+          widget: "select",
+          options:
+            [
+              "Whole School",
+              "Year 7",
+              "Year 8",
+              "Year 9",
+              "Year 10",
+              "Year 11",
+              "Sixth Form",
+            ],
+        }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - {
+          label: "Letter (PDF)",
+          name: "documentHref",
+          widget: "file",
+          media_folder: "/public/documents/letters",
+          public_folder: "/documents/letters",
+        }
+      - { label: "Summary", name: "excerpt", widget: "text", required: false }
+
+  - name: "policies"
+    label: "Policies"
+    folder: "content/policies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Policy Name", name: "title", widget: "string" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "Safeguarding",
+              "Admissions",
+              "Data Protection",
+              "SEND & Pupil Premium",
+              "Curriculum",
+              "Behaviour & Attendance",
+              "Health & Safety",
+              "Other",
+            ],
+        }
+      - {
+          label: "Policy Document (PDF)",
+          name: "documentHref",
+          widget: "file",
+          media_folder: "/public/documents/policies",
+          public_folder: "/documents/policies",
+        }
+      - {
+          label: "Last Reviewed",
+          name: "lastReviewed",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+        }
+      - {
+          label: "Next Review Due",
+          name: "nextReview",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          required: false,
+        }
+
   - name: "settings"
     label: "Site Settings"
     files:
@@ -66,3 +172,14 @@ collections:
             fields:
               - { label: "Term", name: "term", widget: "string" }
               - { label: "Date Range", name: "range", widget: "string" }
+      - label: "Governors"
+        name: "governors"
+        file: "content/settings/governors.md"
+        fields:
+          - label: "Governors"
+            name: "governors"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text", required: false }
