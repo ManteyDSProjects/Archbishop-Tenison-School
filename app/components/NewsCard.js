@@ -15,6 +15,7 @@ export default function NewsCard({ slug, title, date, excerpt, image, href, newT
             fill
             sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
             className="object-cover"
+            loading="eager"
           />
         </div>
       )}

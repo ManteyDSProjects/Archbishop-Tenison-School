@@ -60,7 +60,7 @@ export default function Home() {
               fill
               sizes="(min-width: 1024px) 66vw, 100vw"
               className="object-cover"
-              priority
+              loading="eager"
             />
           </div>
           <div className="relative aspect-[3/2] overflow-hidden">
@@ -70,6 +70,7 @@ export default function Home() {
               fill
               sizes="(min-width: 1024px) 33vw, 100vw"
               className="object-cover"
+              loading="eager"
             />
           </div>
           <div className="relative aspect-[3/2] overflow-hidden">
@@ -79,6 +80,7 @@ export default function Home() {
               fill
               sizes="(min-width: 1024px) 33vw, 100vw"
               className="object-cover"
+              loading="eager"
             />
           </div>
         </div>
@@ -159,6 +161,7 @@ export default function Home() {
             fill
             sizes="(min-width: 1280px) 1200px, 100vw"
             className="object-cover"
+            loading="eager"
           />
         </div>
       </section>
