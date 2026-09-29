@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex min-w-0 flex-col overflow-x-hidden bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-body">
         <Navbar />
-        <main className="flex min-w-0 flex-1 flex-col">{children}</main>
+        <main className="min-w-0 flex-1">{children}</main>
         <Footer />
         <Script
           src="https://identity.netlify.com/v1/netlify-identity-widget.js"
