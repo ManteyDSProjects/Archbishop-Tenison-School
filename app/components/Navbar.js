@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useId, useRef, useState } from "react";
 import { NAV_LINKS, UTILITY_LINK } from "@/lib/nav-data";
+import SearchOverlay, { MagnifierIcon } from "./SearchOverlay";
 
 // Navy-on-navy default focus ring would be invisible here, so every
 // interactive element in this navy-chrome header gets a gold ring instead.
@@ -247,8 +248,23 @@ function MobileItem({ link, pathname, close }) {
   );
 }
 
+function SearchButton({ onClick, className = "" }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Search"
+      aria-haspopup="dialog"
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--brand-cream-50)]/40 text-[var(--brand-cream-50)] transition-colors hover:border-[var(--brand-cream-50)] ${FOCUS_RING} ${className}`}
+    >
+      <MagnifierIcon className="h-[18px] w-[18px]" />
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -272,6 +288,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-4 xl:flex">
+          <SearchButton onClick={() => setSearchOpen(true)} />
           <DesktopItem
             link={UTILITY_LINK}
             pathname={pathname}
@@ -286,14 +303,17 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className={`font-body xl:hidden rounded-full border border-[var(--brand-cream-50)]/40 px-5 py-2 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--brand-cream-50)] transition-colors hover:border-[var(--brand-cream-50)] ${FOCUS_RING}`}
-          aria-expanded={open}
-        >
-          {open ? "Close" : "Explore"}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <SearchButton onClick={() => setSearchOpen(true)} />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className={`font-body rounded-full border border-[var(--brand-cream-50)]/40 px-5 py-2 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--brand-cream-50)] transition-colors hover:border-[var(--brand-cream-50)] ${FOCUS_RING}`}
+            aria-expanded={open}
+          >
+            {open ? "Close" : "Explore"}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -325,6 +345,8 @@ export default function Navbar() {
           </div>
         </nav>
       )}
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }
