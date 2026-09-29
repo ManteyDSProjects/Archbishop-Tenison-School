@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/extract-pdf-text.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -22,6 +23,7 @@
     "decap-server": "^3.11.3",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
+    "pdf-parse": "^1.1.1",
     "tailwindcss": "^4"
   }
 }

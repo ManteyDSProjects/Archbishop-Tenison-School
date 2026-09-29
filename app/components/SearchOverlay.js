@@ -12,6 +12,8 @@ import {
   groupResults,
   highlightParts,
   runSearch,
+  snippet,
+  titleMatches,
 } from "@/lib/search";
 
 const FOCUS = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-border-focus)]";
@@ -53,7 +55,7 @@ export default function SearchOverlay({ open, onClose }) {
   const returnFocus = useRef(null);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(-1);
-  const { index, error } = useSearchIndex(open);
+  const { index, error } = useSearchIndex(open, query.trim().length >= 2);
 
   const grouped = useMemo(() => {
     if (!index || !query.trim()) return [];
@@ -288,6 +290,11 @@ export default function SearchOverlay({ open, onClose }) {
                         <span className="font-body mt-0.5 block text-xs text-[var(--color-text-tertiary)]">
                           {item.section || item.type.replace(/s$/, "")}
                         </span>
+                        {!titleMatches(item.title, query) && item.text && (
+                          <span className="font-body mt-1 line-clamp-2 block text-sm text-[var(--color-text-secondary)]">
+                            <Highlight text={snippet(item.text, query, 70)} query={query} />
+                          </span>
+                        )}
                       </>
                     );
                     const cls = `block py-3 ${isActive ? "bg-[var(--color-bg-tertiary)]" : ""} ${FOCUS}`;

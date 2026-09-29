@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { useSearchIndex } from "@/lib/use-search-index";
-import { GROUPS, OFFICE_PHONE, POPULAR, SUGGESTIONS, runSearch, snippet } from "@/lib/search";
+import { GROUPS, OFFICE_PHONE, POPULAR, SUGGESTIONS, runSearch, snippet, textMatches } from "@/lib/search";
 import { Highlight, MagnifierIcon } from "./SearchOverlay";
 
 const FOCUS = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-border-focus)]";
@@ -21,7 +21,7 @@ export default function SearchResults() {
   const type = GROUPS.includes(params.get("type")) ? params.get("type") : "";
   const [draft, setDraft] = useState(q);
   const [syncedQ, setSyncedQ] = useState(q);
-  const { index, error } = useSearchIndex(true);
+  const { index, error, docsLoading } = useSearchIndex(true, true);
 
   // Keep the box in step with the address (back/forward, suggestion chips).
   if (syncedQ !== q) {
@@ -139,6 +139,9 @@ export default function SearchResults() {
             <strong className="font-semibold text-[var(--color-text-primary)]">{shown.length}</strong>{" "}
             {shown.length === 1 ? "result" : "results"} for &ldquo;
             <strong className="font-semibold text-[var(--color-text-primary)]">{q}</strong>&rdquo;
+            {docsLoading && (
+              <span className="text-[var(--color-text-tertiary)]"> · Searching inside documents…</span>
+            )}
           </p>
 
           {shown.length === 0 ? (
@@ -151,10 +154,7 @@ export default function SearchResults() {
           ) : (
             <ul className="mt-4 divide-y divide-[var(--color-border-primary)] border-b border-[var(--color-border-primary)]">
               {shown.map((item) => {
-                const excerpt =
-                  item.type === "Pages" || item.type === "Curriculum" || item.type === "News"
-                    ? snippet(item.text, q)
-                    : "";
+                const excerpt = textMatches(item.text, q) ? snippet(item.text, q) : "";
                 const content = (
                   <>
                     <span className="font-body block text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
