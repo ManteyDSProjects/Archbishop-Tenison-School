@@ -6,6 +6,8 @@
   React component (app/components/ContactForm.js), which Netlify's
   scanner cannot see, so this static duplicate registers the same
   fields at build time. Keep field names in sync with ContactForm.js.
+  This file must NOT be named contact.html: Netlify would serve it at /contact
+  and hide the real Contact page.
 -->
 <html>
   <body>
