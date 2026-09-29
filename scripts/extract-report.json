@@ -1,0 +1,393 @@
+{
+  "navDocs": {
+    "SIAMS": "/documents/pages/siams.pdf",
+    "Financial Information": "/documents/pages/financial-information.pdf",
+    "SEND Information Report": "/documents/pages/send-information-report.pdf",
+    "Remote Education Statement": "/documents/pages/remote-education-statement.pdf",
+    "Term Dates 2026-2027": "/documents/pages/term-dates-2026-2027-2.pdf",
+    "The School Day": "/documents/pages/the-school-day.pdf",
+    "Dinner Fob": "/documents/pages/using-the-fob-for-school-dinners.pdf",
+    "How to use MCAS": "/documents/pages/homeworkinformation-4c9a8c.pdf",
+    "Office365": "/documents/pages/office365.pdf"
+  },
+  "missingDocs": [
+    {
+      "page": "academicresults",
+      "label": "2021 GCSE Results",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_c89331f27b9e44f9a1db26242738805a.pdf"
+    },
+    {
+      "page": "academicresults",
+      "label": "2023 A Level Results",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_20dfc99adf71421ab46367d839485219.pdf"
+    },
+    {
+      "page": "academicresults",
+      "label": "2022 A Level Results",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_59b7549b7c6e4c11b1a43e56bade08a0.pdf"
+    },
+    {
+      "page": "academicresults",
+      "label": "2021 A Level Results",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_738d58cb1da849bc86a21acf4641afb8.pdf"
+    },
+    {
+      "page": "careers",
+      "label": "Careers education and guidance",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_4620a3050bd8442a9dfb76295da0bc17.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Physics",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_d567a0721dad40689818784a77cd0e60.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Mathematics",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_b5bed8c276b94a18aef63d4172094b96.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Psychology",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_576be5c13e8749218dd332e0c1ffbefd.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Music",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_4c3dc4a4c18042feaba683871612f132.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Sociology",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_8255eecbddbb41f99042c4c36e584404.pdf"
+    },
+    {
+      "page": "sixthformsubjectoverviews",
+      "label": "Physical Education",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_fe3859e8b9da45f3a6a7c593d8c78ead.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Art",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_97ffbdc27c4a427fa8bb0d1ffe3b8308.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Computer Science",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_180e0732f2c24db5a7de93a0ac357881.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Geography",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_16d31aa153944546b93af5da79f5f0dc.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "History",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_86381cdd9fe44c2cb7de864d7c23a79a.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Modern Foreign Languages",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_da0869bdff8447d7b4e4c9bd9f7573de.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Music",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_7cec74f4631f4f2698335dd632b19a47.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Drama",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_9b78d9df84c44f85b447c4cf6e3408ff.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Latin",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_38533dd5e26840079aebb9c493bc00f1.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "DT",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_74747b9051de451e870181823469de47.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Maths",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_b5bed8c276b94a18aef63d4172094b96.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "RS",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_f6fed2a9bc7d451b9e6ce795ba1f1280.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "English",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_dbef28fb2c2d4cea89b6048eb0259b7e.pdf"
+    },
+    {
+      "page": "year7subjectoverviews",
+      "label": "Science",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_2cad2ecec415464d8210bf06e008fdd3.pdf"
+    },
+    {
+      "page": "yeargrouppresentations",
+      "label": "Year 13",
+      "href": "https://www.archten.croydon.sch.uk/_files/ugd/3094c8_86e2052ea5b54544bb24f2c4bcbc7bdc.pdf"
+    }
+  ],
+  "unbuiltLinks": [],
+  "missingImages": [],
+  "images": [
+    {
+      "page": "alumni",
+      "name": "d02051def4e6451ab5121ea6732c4dfd.png",
+      "alt": ""
+    },
+    {
+      "page": "alumni",
+      "name": "dcb53b59f7ce4086bc93a606434c5533.png",
+      "alt": ""
+    },
+    {
+      "page": "alumni",
+      "name": "9641cf23ced04183be55a4efdf4626da.jpg",
+      "alt": ""
+    },
+    {
+      "page": "development-trust",
+      "name": "1e7ceddea4ed42558b6787bd161afb58.png",
+      "alt": "Vision312"
+    },
+    {
+      "page": "development-trust",
+      "name": "3f720e2eecaf4020bc96805cf7e50892.png",
+      "alt": "Vision312"
+    },
+    {
+      "page": "development-trust",
+      "name": "53fa8bb7ed054559bbbe40b3e6a69ee4.png",
+      "alt": "easyfundraising"
+    },
+    {
+      "page": "vision312x",
+      "name": "1e7ceddea4ed42558b6787bd161afb58.png",
+      "alt": "Vision312"
+    },
+    {
+      "page": "vision312",
+      "name": "1e7ceddea4ed42558b6787bd161afb58.png",
+      "alt": "Vision312"
+    },
+    {
+      "page": "vision312",
+      "name": "3f720e2eecaf4020bc96805cf7e50892.png",
+      "alt": "Vision312"
+    },
+    {
+      "page": "vision312",
+      "name": "53fa8bb7ed054559bbbe40b3e6a69ee4.png",
+      "alt": "easyfundraising"
+    },
+    {
+      "page": "schooltrips",
+      "name": "059738a1bc5e421a9c70ea024fc4fe10.jpg",
+      "alt": ""
+    },
+    {
+      "page": "schooltrips",
+      "name": "24ef6044216d4469b013f52d5d344526.jpg",
+      "alt": ""
+    },
+    {
+      "page": "teacher-training",
+      "name": "e160b642e04542a6ad9da59551b1c192.png",
+      "alt": "Train to Teach"
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "5d790d3a17b14ff7b1285965a86a42e3.png",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "4187fb2e543244d59b259c78d403ef74.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "7b006e2b35f040dcb03149d24bf3a12a.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "674f27722b6546f7840f99224593a376.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "402ff61e77e04b229cd0380e39a7bf39.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "3dc1a2c15d124f148ef32de4e088108e.png",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "99a956396cef470e8b3fbcc04d22cd7d.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72027",
+      "name": "167b8449d93c4dd2b19b6fd7be594312.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "37bfdd2df6f04eaf8b2c2e5fb2a5baf0.png",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "df455065e46e4ac29f9d53ef147f88eb.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "a614dbde8c33461097543c4aa0aa4ad1.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "ff8dee8f530b4480b4f44e601d0b7fb6.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "e2f2624a98d849368590b1c8b39b1ff3.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "15beb4e3f5d14c80a780cb7fd525cc3b.jpg",
+      "alt": "Sixth Form"
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "cbe7dd4b416d41aebedb3dab1c7c4973.jpg",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "100c16d7360044b18041b7b2da0b564f.png",
+      "alt": ""
+    },
+    {
+      "page": "sixth-form-admissions",
+      "name": "402ff61e77e04b229cd0380e39a7bf39.jpg",
+      "alt": ""
+    },
+    {
+      "page": "appeals",
+      "name": "18bdc70987a849ab90fc331f3c3a606d.jpg",
+      "alt": "Church service"
+    },
+    {
+      "page": "appeals",
+      "name": "abc597d2a17747dba0b6db561956d748.jpg",
+      "alt": "Music at Tenison's"
+    },
+    {
+      "page": "appeals",
+      "name": "4ab9ff9a34194c4380efad92587cf7ed.jpg",
+      "alt": "Drama"
+    },
+    {
+      "page": "appeals",
+      "name": "09170e4ea23147d2a9ff48feae2a70f9.jpg",
+      "alt": "Tenison's uniform"
+    },
+    {
+      "page": "geography",
+      "name": "6e402e76955f4e2b94a1a069969b7a5f.jpeg",
+      "alt": "Cliff"
+    },
+    {
+      "page": "geography",
+      "name": "94f6bd94cb2f4e02be0dfa108cacaa05.jpeg",
+      "alt": "Hotel"
+    },
+    {
+      "page": "geography",
+      "name": "059738a1bc5e421a9c70ea024fc4fe10.jpg",
+      "alt": "Beach"
+    },
+    {
+      "page": "applicationsforyear72025",
+      "name": "3dc1a2c15d124f148ef32de4e088108e.png",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72025",
+      "name": "4187fb2e543244d59b259c78d403ef74.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72025",
+      "name": "402ff61e77e04b229cd0380e39a7bf39.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72025",
+      "name": "99a956396cef470e8b3fbcc04d22cd7d.jpg",
+      "alt": ""
+    },
+    {
+      "page": "applicationsforyear72025",
+      "name": "167b8449d93c4dd2b19b6fd7be594312.jpg",
+      "alt": ""
+    },
+    {
+      "page": "copy-of-admissions",
+      "name": "db0623d9dd534c5d9bb76f540b78b475.png",
+      "alt": ""
+    },
+    {
+      "page": "copy-of-admissions",
+      "name": "4187fb2e543244d59b259c78d403ef74.jpg",
+      "alt": ""
+    },
+    {
+      "page": "copy-of-admissions",
+      "name": "674f27722b6546f7840f99224593a376.jpg",
+      "alt": ""
+    },
+    {
+      "page": "copy-of-admissions",
+      "name": "402ff61e77e04b229cd0380e39a7bf39.jpg",
+      "alt": ""
+    },
+    {
+      "page": "copy-of-admissions",
+      "name": "3dc1a2c15d124f148ef32de4e088108e.png",
+      "alt": ""
+    }
+  ],
+  "skippedGalleryImages": [
+    {
+      "page": "vision312x"
+    },
+    {
+      "page": "vision312x"
+    },
+    {
+      "page": "vision312x"
+    },
+    {
+      "page": "vision312x"
+    }
+  ]
+}
