@@ -1,8 +1,8 @@
 ---
-title: "School Uniform"
-slug: "schooluniform"
-section: "Information"
-sourceUrl: "https://www.archten.croydon.sch.uk/schooluniform"
+title: School Uniform 2026
+slug: schooluniform
+section: Information
+sourceUrl: https://www.archten.croydon.sch.uk/schooluniform
 ---
 [Equipped to Learn](/documents/pages/equipped-to-learn.pdf)
 
