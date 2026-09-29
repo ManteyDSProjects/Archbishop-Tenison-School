@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Only takes effect on localhost: run `npx decap-server` next to `npm run dev`
+# and open /admin to edit content on disk without logging in.
+local_backend: true
+
 # Netlify Identity handles auth. Enable Identity + Git Gateway on the
 # Netlify site once deployed (Site configuration > Identity), then
 # invite staff users from there.
@@ -27,16 +31,39 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-  - name: "staff"
-    label: "Staff Profiles"
-    folder: "content/staff"
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
+    summary: "{{title}} ({{section}})"
+    media_folder: "/public/images/pages"
+    public_folder: "/images/pages"
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Role", name: "role", widget: "string" }
-      - { label: "Photo", name: "photo", widget: "image", required: false }
-      - { label: "Bio", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Web address (no spaces, lower case, e.g. school-uniform)",
+          name: "slug",
+          widget: "string",
+          pattern: ["^[a-z0-9-]+$", "Lower case letters, numbers and hyphens only"],
+        }
+      - {
+          label: "Menu section",
+          name: "section",
+          widget: "select",
+          required: false,
+          options:
+            [
+              "About Us",
+              "Information",
+              "Curriculum",
+              "School Services",
+              "Staff Recruitment",
+              "Admissions",
+              "Christian Distinctiveness",
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "curriculum"
     label: "Curriculum Subjects"
@@ -90,7 +117,7 @@ collections:
               "Sixth Form",
             ],
         }
-      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: false }
       - {
           label: "Letter (PDF)",
           name: "documentHref",
@@ -135,6 +162,7 @@ collections:
           name: "lastReviewed",
           widget: "datetime",
           format: "YYYY-MM-DD",
+          required: false,
         }
       - {
           label: "Next Review Due",
@@ -151,20 +179,10 @@ collections:
         name: "term_dates"
         file: "content/settings/term-dates.md"
         fields:
+          - { label: "Title", name: "title", widget: "string" }
           - label: "Dates"
             name: "dates"
             widget: "list"
             fields:
               - { label: "Term", name: "term", widget: "string" }
               - { label: "Date Range", name: "range", widget: "string" }
-      - label: "Governors"
-        name: "governors"
-        file: "content/settings/governors.md"
-        fields:
-          - label: "Governors"
-            name: "governors"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Role", name: "role", widget: "string" }
-              - { label: "Bio", name: "bio", widget: "text", required: false }

@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500&family=Public+Sans:wght@400;600&display=swap");
+
+/* Editor preview pane in /admin: approximates the public site typography. */
+body {
+  background: #ffffff;
+  color: #3a3833;
+  font-family: "Public Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 24px 32px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  color: #1c1b18;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 2rem 0 0.5rem;
+}
+
+p,
+ul,
+ol {
+  margin: 1rem 0;
+}
+
+ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+ol {
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+a {
+  color: #184098;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+strong {
+  color: #1c1b18;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid #c9a227;
+}
