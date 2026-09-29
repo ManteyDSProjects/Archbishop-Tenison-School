@@ -29,24 +29,15 @@ const FOOTER_COLUMNS = [
 export default function Footer() {
   const columns = FOOTER_COLUMNS;
   return (
-    <footer className="relative mt-auto overflow-hidden border-t-[3px] border-[var(--color-accent-gold)] bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)]">
-      <Image
-        src="/images/brand/crest-watermark.png"
-        alt=""
-        aria-hidden="true"
-        width={340}
-        height={400}
-        className="pointer-events-none absolute -bottom-16 -right-12 h-[340px] w-auto opacity-[0.08] invert"
-      />
-
+    <footer className="relative mt-auto border-t-[3px] border-[var(--color-accent-gold)] bg-[var(--brand-navy-900)] text-[var(--brand-cream-50)]">
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] lg:px-8">
         <div>
           <Image
             src="/images/brand/logo.png"
             alt="Archbishop Tenison's CE High School crest"
-            width={120}
-            height={40}
-            className="mb-4 h-9 w-auto"
+            width={280}
+            height={90}
+            className="mb-4 h-14 w-auto sm:h-16"
           />
           <p className="font-body text-sm text-[var(--brand-cream-50)]/70">
             Archbishop Tenison&apos;s CE High School, Selborne Road, Croydon, CR0 5JQ

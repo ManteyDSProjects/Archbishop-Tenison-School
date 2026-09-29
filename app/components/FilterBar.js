@@ -1,6 +1,29 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+function Arrow({ direction, onClick }) {
+  const left = direction === "left";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      tabIndex={-1}
+      aria-hidden="true"
+      style={{
+        backgroundImage: `linear-gradient(to ${left ? "right" : "left"}, var(--color-bg-primary) 55%, transparent)`,
+      }}
+      className={`absolute top-0 z-10 flex h-[38px] w-14 items-center ${left ? "left-0 justify-start" : "right-0 justify-end"}`}
+    >
+      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-accent-primary)] bg-[var(--color-bg-primary)] text-[var(--color-accent-primary)] transition-colors hover:bg-[var(--color-accent-primary)] hover:text-[var(--color-text-inverse)]">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+          <path d={left ? "M12 4l-6 6 6 6" : "M8 4l6 6-6 6"} />
+        </svg>
+      </span>
+    </button>
+  );
+}
 
 /**
  * Shared filter-chip row, driven by a URL query param so filtered views
@@ -17,6 +40,34 @@ export default function FilterBar({ paramName, options, allLabel = "All" }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const active = searchParams.get(paramName) ?? "";
+  const rowRef = useRef(null);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  const update = useCallback(() => {
+    const el = rowRef.current;
+    if (!el) return;
+    setCanLeft(el.scrollLeft > 4);
+    setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = rowRef.current;
+    if (!el) return;
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    el.addEventListener("scroll", update, { passive: true });
+    return () => {
+      ro.disconnect();
+      el.removeEventListener("scroll", update);
+    };
+  }, [update]);
+
+  function scrollByDir(dir) {
+    const el = rowRef.current;
+    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.7, behavior: "smooth" });
+  }
 
   function setFilter(value) {
     const params = new URLSearchParams(searchParams.toString());
@@ -34,7 +85,11 @@ export default function FilterBar({ paramName, options, allLabel = "All" }) {
     : options;
 
   return (
+    <div className="relative">
+      {canLeft && <Arrow direction="left" onClick={() => scrollByDir(-1)} />}
+      {canRight && <Arrow direction="right" onClick={() => scrollByDir(1)} />}
     <div
+      ref={rowRef}
       role="group"
       aria-label="Filter"
       className="flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -57,6 +112,7 @@ export default function FilterBar({ paramName, options, allLabel = "All" }) {
           </button>
         );
       })}
+    </div>
     </div>
   );
 }

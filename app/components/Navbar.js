@@ -56,7 +56,7 @@ function DropdownPanel({ link, id, alignRight, onNavigate }) {
       className={`absolute top-full z-50 pt-2 ${alignRight ? "right-0" : "left-0"}`}
     >
       <div
-        className={`max-h-[75vh] overflow-y-auto border-t-2 border-[var(--color-accent-gold)] bg-[var(--brand-navy-900)] p-5 shadow-lg ${
+        className={`max-h-[75vh] overflow-y-auto rounded-md border border-[var(--brand-cream-50)]/15 bg-[var(--brand-navy-900)] p-5 ${
           multi ? "grid w-[34rem] grid-cols-2 gap-8" : "w-72"
         }`}
       >
@@ -289,32 +289,10 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`xl:hidden ${FOCUS_RING}`}
-          aria-label="Toggle navigation menu"
+          className={`font-body xl:hidden rounded-full border border-[var(--brand-cream-50)]/40 px-5 py-2 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--brand-cream-50)] transition-colors hover:border-[var(--brand-cream-50)] ${FOCUS_RING}`}
           aria-expanded={open}
         >
-          <svg
-            className="h-7 w-7"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {open ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+          {open ? "Close" : "Explore"}
         </button>
       </div>
 

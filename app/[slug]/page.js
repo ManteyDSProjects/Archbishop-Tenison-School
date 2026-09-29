@@ -95,7 +95,7 @@ export default async function GenericPage({ params }) {
           }
           if (block.type === "video") {
             return (
-              <div key={i} className="my-8 overflow-hidden rounded-lg shadow-sm">
+              <div key={i} className="my-8 overflow-hidden rounded-lg">
                 <video
                   className="w-full"
                   controls
