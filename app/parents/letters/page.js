@@ -53,7 +53,7 @@ export default function LettersPage({ searchParams }) {
               <PDFLink
                 key={letter.slug}
                 href={letter.documentHref}
-                meta={`${letter.yearGroup} · ${letter.date}`}
+                meta={letter.date ? `${letter.yearGroup} · ${letter.date}` : letter.yearGroup}
               >
                 {letter.title}
               </PDFLink>

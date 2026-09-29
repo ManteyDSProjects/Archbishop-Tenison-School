@@ -32,7 +32,7 @@ export default function PoliciesPage({ searchParams }) {
         compact
         eyebrow="Parents"
         title="Policies"
-        subtitle="Filter by category. Sorted by most recently reviewed."
+        subtitle="Filter by category."
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
@@ -54,7 +54,7 @@ export default function PoliciesPage({ searchParams }) {
               <PDFLink
                 key={policy.slug}
                 href={policy.documentHref}
-                meta={`Reviewed ${policy.lastReviewed}`}
+                meta={policy.lastReviewed ? `Reviewed ${policy.lastReviewed}` : policy.category}
               >
                 {policy.title}
               </PDFLink>
