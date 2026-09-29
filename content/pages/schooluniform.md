@@ -1,5 +1,5 @@
 ---
-title: School Uniform 2026
+title: School Uniform
 slug: schooluniform
 section: Information
 sourceUrl: https://www.archten.croydon.sch.uk/schooluniform
