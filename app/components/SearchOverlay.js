@@ -168,7 +168,7 @@ export default function SearchOverlay({ open, onClose }) {
       </div>
 
       <div className="mx-auto max-w-3xl px-4 pb-24 pt-10 sm:px-6 sm:pt-16">
-        <div className="flex items-center gap-3 border-b-2 border-[var(--color-accent-gold)] pb-3">
+        <div className="flex items-center gap-3 border-b-2 border-[var(--color-accent-gold)] pb-3 transition-colors focus-within:border-[var(--brand-navy-900)]">
           <input
             ref={inputRef}
             type="text"
@@ -182,6 +182,7 @@ export default function SearchOverlay({ open, onClose }) {
             value={query}
             onChange={(e) => updateQuery(e.target.value)}
             placeholder="Search the website"
+            style={{ outline: "none" }}
             className="font-display min-w-0 flex-1 bg-transparent text-3xl font-medium text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)] focus:outline-none sm:text-5xl"
           />
           {query && (
