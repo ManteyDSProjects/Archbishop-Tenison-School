@@ -12,5 +12,46 @@
     <script>
       CMS.registerPreviewStyle("/admin/preview.css");
     </script>
+    <script>
+      // Replace Decap's generic person icon with a monogram: initials of the
+      // logged-in person's name, or the first letter of their email.
+      (function () {
+        function currentUser() {
+          try {
+            var u = window.netlifyIdentity && window.netlifyIdentity.currentUser();
+            if (u) return { name: (u.user_metadata || {}).full_name || (u.user_metadata || {}).name, email: u.email };
+          } catch (e) {}
+          try {
+            var s = JSON.parse(localStorage.getItem("decap-cms-user") || localStorage.getItem("netlify-cms-user") || "null");
+            if (s) return { name: s.name || (s.user_metadata || {}).full_name, email: s.email || s.login };
+          } catch (e) {}
+          return {};
+        }
+
+        function initials(user) {
+          var words = (user.name || "").trim().split(/\s+/).filter(Boolean);
+          if (words.length > 1) return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+          if (words.length === 1) return words[0][0].toUpperCase();
+          var local = (user.email || "").split("@")[0];
+          return local ? local[0].toUpperCase() : "?";
+        }
+
+        function apply() {
+          var icon = document.querySelector('[class*="AvatarPlaceholderIcon"]');
+          if (!icon) return;
+          var text = initials(currentUser());
+          if (icon.getAttribute("data-monogram") === text) return;
+          icon.setAttribute("data-monogram", text);
+          icon.textContent = text;
+          icon.style.cssText =
+            "display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;" +
+            "border-radius:50%;background:#0f2757;color:#faf8f2;font:600 13px/1 'Public Sans',system-ui,sans-serif;" +
+            "letter-spacing:0.02em;";
+        }
+
+        new MutationObserver(apply).observe(document.documentElement, { childList: true, subtree: true });
+        apply();
+      })();
+    </script>
   </body>
 </html>
