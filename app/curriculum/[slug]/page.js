@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return getAllCurriculum().map((item) => ({ slug: item.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const item = getCurriculumBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = getCurriculumBySlug(slug);
   return {
     title: item
       ? `${item.title} | Curriculum | Archbishop Tenison's CE High School`
@@ -17,8 +18,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function CurriculumSubjectPage({ params }) {
-  const subject = getCurriculumBySlug(params.slug);
+export default async function CurriculumSubjectPage({ params }) {
+  const { slug } = await params;
+  const subject = getCurriculumBySlug(slug);
 
   if (!subject) {
     notFound();
