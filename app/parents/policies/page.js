@@ -19,8 +19,8 @@ const CATEGORY_OPTIONS = [
   { value: "Other", label: "Other" },
 ];
 
-export default function PoliciesPage({ searchParams }) {
-  const category = searchParams?.category;
+export default async function PoliciesPage({ searchParams }) {
+  const { category } = (await searchParams) || {};
   const allPolicies = getAllPolicies();
   const policies = category
     ? allPolicies.filter((p) => p.category === category)

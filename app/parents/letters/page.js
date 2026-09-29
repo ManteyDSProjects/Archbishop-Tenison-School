@@ -18,8 +18,8 @@ const YEAR_GROUP_OPTIONS = [
   { value: "Sixth Form", label: "Sixth Form" },
 ];
 
-export default function LettersPage({ searchParams }) {
-  const year = searchParams?.year;
+export default async function LettersPage({ searchParams }) {
+  const { year } = (await searchParams) || {};
   const allLetters = getAllLetters();
   const letters = year
     ? allLetters.filter((l) => l.yearGroup === year)

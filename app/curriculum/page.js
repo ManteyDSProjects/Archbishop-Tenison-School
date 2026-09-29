@@ -14,8 +14,8 @@ const KEY_STAGE_OPTIONS = [
   { value: "Sixth Form", label: "Sixth Form" },
 ];
 
-export default function CurriculumPage({ searchParams }) {
-  const stage = searchParams?.stage;
+export default async function CurriculumPage({ searchParams }) {
+  const { stage } = (await searchParams) || {};
   const allSubjects = getAllCurriculum();
   const subjects = stage
     ? allSubjects.filter((s) => (s.keyStage || []).includes(stage))
