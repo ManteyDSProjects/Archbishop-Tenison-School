@@ -10,17 +10,17 @@ const SECTIONS = [
   {
     href: "/parents/term-dates",
     label: "Term Dates",
-    desc: "Key dates for the school year, at a glance.",
+    desc: "",
   },
   {
     href: "/parents/letters",
     label: "Letters Home",
-    desc: "Letters sent to parents, filterable by year group.",
+    desc: "Year 7, Year 8, Year 9, Year 10, Year 11, Sixth Form, Whole School Letters",
   },
   {
     href: "/parents/policies",
     label: "Policies",
-    desc: "School policies, organised by category.",
+    desc: "",
   },
 ];
 
@@ -34,8 +34,8 @@ export default function ParentsPage() {
       <HeroBanner
         compact
         eyebrow="Parents"
-        title="Everything you need, in one place"
-        subtitle="Term dates, letters home and school policies — ordered by what you're most likely to be looking for."
+        title="Information"
+        subtitle="Letters Home"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
@@ -49,9 +49,11 @@ export default function ParentsPage() {
               <h3 className="font-display text-lg font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)]">
                 {s.label}
               </h3>
-              <p className="font-body mt-2 text-sm text-[var(--color-text-secondary)]">
-                {s.desc}
-              </p>
+              {s.desc && (
+                <p className="font-body mt-2 text-sm text-[var(--color-text-secondary)]">
+                  {s.desc}
+                </p>
+              )}
             </Link>
           ))}
         </div>
@@ -59,7 +61,7 @@ export default function ParentsPage() {
         {termDates.length > 0 && (
           <div className="mt-14">
             <h2 className="font-display text-xl font-medium text-[var(--color-text-primary)]">
-              Upcoming term dates
+              Term Dates
             </h2>
             <dl className="font-body mt-4 divide-y divide-[var(--color-border-secondary)]">
               {termDates.map((d) => (
@@ -83,7 +85,7 @@ export default function ParentsPage() {
           <div className="mt-14">
             <div className="flex items-center justify-between">
               <h2 className="font-display text-xl font-medium text-[var(--color-text-primary)]">
-                Recent letters
+                Letters Home
               </h2>
               <Link
                 href="/parents/letters"

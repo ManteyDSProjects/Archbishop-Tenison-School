@@ -10,58 +10,23 @@ export default function ChristianDistinctivenessPage() {
       <HeroBanner
         compact
         eyebrow="Christian Distinctiveness"
-        title="Faith at the heart of our school"
-        subtitle="As a Church of England school, our Christian values shape everything we do."
+        title="Christian Distinctiveness"
+        subtitle="Academic excellence for each person as part of a Christian Community"
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="font-body space-y-10 text-[var(--color-text-secondary)]">
-          <div>
-            <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
-              Our vision statement
-            </h2>
-            <p className="mt-4">
-              &ldquo;Let your light shine before others, so that they may see
-              your good works.&rdquo; (Matthew 5:16) We are a school
-              community where every person is valued as made in the image of
-              God, and where faith inspires academic excellence, kindness,
-              and service.
-            </p>
-          </div>
+        <div className="font-body space-y-6 text-[var(--color-text-secondary)]">
+          <p>
+            As the last remaining Church of England secondary school in Croydon, our Christian ethos is at the heart of everything we do at Archbishop Tenison&rsquo;s. It is our Christian distinctiveness, flowing through our academic curriculum and pastoral care, that sets us apart from every other secondary school in the area.
+          </p>
 
-          <div>
-            <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
-              Collective worship
-            </h2>
-            <p className="mt-4">
-              All students take part in regular acts of collective worship,
-              reflecting the traditions of the Church of England while
-              welcoming and respecting students of all faiths and none.
-            </p>
-          </div>
+          <p>
+            As a school community we are constantly looking for opportunities to turn our ethos and vision &ndash; &lsquo;Academic excellence for each person as part of a Christian Community&rsquo; - into a lived-out reality for all those involved in the life of the school.
+          </p>
 
-          <div>
-            <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
-              SIAMS inspection
-            </h2>
-            <p className="mt-4">
-              As a Church of England school, we are inspected under the
-              Statutory Inspection of Anglican and Methodist Schools (SIAMS)
-              framework, assessing the effectiveness of our Christian
-              distinctiveness.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-display text-2xl font-medium text-[var(--color-text-primary)]">
-              Chaplaincy and pastoral care
-            </h2>
-            <p className="mt-4">
-              Our chaplaincy team supports students and staff of all faiths
-              and backgrounds, offering a space for reflection, prayer, and
-              pastoral support throughout the school year.
-            </p>
-          </div>
+          <p>
+            Link to our latest SIAMS report.
+          </p>
         </div>
       </section>
     </>

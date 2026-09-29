@@ -11,8 +11,8 @@ export default function ContactPage() {
       <HeroBanner
         compact
         eyebrow="Contact Us"
-        title="Get in touch"
-        subtitle="We would love to hear from you. Reach out with any questions about our school."
+        title="How to contact us"
+        subtitle="Archbishop Tenison's CE High School"
       />
 
       <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
@@ -26,11 +26,11 @@ export default function ContactPage() {
                 <dt className="font-medium text-[var(--color-text-tertiary)]">
                   Address
                 </dt>
-                <dd>Selborne Road, Croydon, CR0 5JQ</dd>
+                <dd>Archbishop Tenison&apos;s CE High School, Selborne Road, Croydon, CR0 5JQ</dd>
               </div>
               <div>
                 <dt className="font-medium text-[var(--color-text-tertiary)]">
-                  Phone
+                  Tel
                 </dt>
                 <dd>0208 688 4014</dd>
               </div>
@@ -42,9 +42,45 @@ export default function ContactPage() {
               </div>
               <div>
                 <dt className="font-medium text-[var(--color-text-tertiary)]">
-                  Office hours
+                  Absence
                 </dt>
-                <dd>Monday to Friday, 8:00am – 4:30pm (term time)</dd>
+                <dd>To report pupil/student absence please use the MCAS (My Child at School) app</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  Private and Confidential matters
+                </dt>
+                <dd>Mrs J Andrew at PAtoheadteacher@archten.croydon.sch.uk</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  Finance
+                </dt>
+                <dd>finance@archten.croydon.sch.uk</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  SEN
+                </dt>
+                <dd>danil@archten.croydon.sch.uk</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  Lettings
+                </dt>
+                <dd>lettings@archten.croydon.sch.uk</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  Admissions
+                </dt>
+                <dd>admissions@archten.croydon.sch.uk</dd>
+              </div>
+              <div>
+                <dt className="font-medium text-[var(--color-text-tertiary)]">
+                  General enquiries
+                </dt>
+                <dd>For paper copies of the information contained within this website (free of charge), and for any general enquiries please email reception@archten.croydon.sch.uk</dd>
               </div>
             </dl>
 
