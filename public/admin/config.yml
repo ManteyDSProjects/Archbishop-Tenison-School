@@ -19,28 +19,13 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "vacancies"
-    label: "Vacancies"
-    folder: "content/vacancies"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Contract Type", name: "contractType", widget: "string" }
-      - { label: "Salary", name: "salary", widget: "string" }
-      - { label: "Closing Date", name: "closingDate", widget: "string" }
-      - {
-          label: "Job Pack (PDF)",
-          name: "documentHref",
-          widget: "file",
-          media_folder: "/public/documents/vacancies",
-          public_folder: "/documents/vacancies",
-        }
-      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Order", name: "order", widget: "number", required: false }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Link (page, PDF or external URL)", name: "href", widget: "string", required: false }
+      - { label: "Open link in new tab", name: "newTab", widget: "boolean", default: false, required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
   - name: "staff"
     label: "Staff Profiles"

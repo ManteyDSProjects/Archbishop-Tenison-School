@@ -4,11 +4,14 @@ import HeroBanner from "../../components/HeroBanner";
 import { getAllNews, getNewsBySlug } from "@/lib/content";
 
 export function generateStaticParams() {
-  return getAllNews().map((item) => ({ slug: item.slug }));
+  return getAllNews()
+    .filter((item) => !item.href)
+    .map((item) => ({ slug: item.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const item = getNewsBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = getNewsBySlug(slug);
   return {
     title: item
       ? `${item.title} | Archbishop Tenison's CE High School`
@@ -16,8 +19,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function NewsPostPage({ params }) {
-  const item = getNewsBySlug(params.slug);
+export default async function NewsPostPage({ params }) {
+  const { slug } = await params;
+  const item = getNewsBySlug(slug);
 
   if (!item) {
     notFound();

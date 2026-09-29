@@ -1,49 +1,59 @@
+import Link from "next/link";
 import HeroBanner from "../components/HeroBanner";
-import VacancyCard from "../components/VacancyCard";
-import { getOpenVacancies } from "@/lib/content";
+import PDFLink from "../components/PDFLink";
 
 export const metadata = {
-  title: "Work with us | Archbishop Tenison's CE High School",
+  title: "Staff Recruitment | Archbishop Tenison's CE High School",
 };
 
-export default function WorkWithUsPage() {
-  const vacancies = getOpenVacancies();
+const DOCUMENTS = [
+  {
+    label: "Standard Teaching Job Description",
+    href: "/documents/staff-recruitment/standard-teaching-job-description.pdf",
+  },
+  {
+    label: "Teaching Staff Application Form",
+    href: "/documents/staff-recruitment/teaching-staff-application-form.pdf",
+  },
+  {
+    label: "Support Staff Application Form",
+    href: "/documents/staff-recruitment/support-staff-application-form.pdf",
+  },
+];
 
+export default function WorkWithUsPage() {
   return (
     <>
-      <HeroBanner
-        compact
-        eyebrow="Work with us"
-        title="Join our staff team"
-        subtitle="We are always keen to hear from talented people who share our vision and values."
-      />
+      <HeroBanner compact title="Staff Recruitment" />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        {vacancies.length === 0 ? (
-          <p className="font-body text-[var(--color-text-secondary)]">
-            There are no current vacancies. Please check back soon.
-          </p>
-        ) : (
-          <div className="space-y-6">
-            {vacancies.map((vacancy) => (
-              <VacancyCard
-                key={vacancy.slug}
-                title={vacancy.title}
-                contractType={vacancy.contractType}
-                salary={vacancy.salary}
-                closingDate={vacancy.closingDate}
-                documentHref={vacancy.documentHref}
-              />
-            ))}
-          </div>
-        )}
+        <p className="font-body text-[var(--color-text-secondary)]">
+          If you are interested in any of our vacancies and would like to
+          arrange an informal chat or visit, please email{" "}
+          <a
+            href="mailto:PAtoHeadteacher@archten.croydon.sch.uk"
+            className="font-semibold text-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary-hover)]"
+          >
+            PAtoHeadteacher@archten.croydon.sch.uk
+          </a>
+        </p>
 
-        <div className="font-body mt-12 border border-[var(--color-border-primary)] p-6 text-sm text-[var(--color-text-secondary)]">
-          Archbishop Tenison&apos;s CE High School is committed to
-          safeguarding and promoting the welfare of children. All
-          appointments are subject to satisfactory references and an
-          enhanced DBS check.
+        <div className="mt-8 border-t border-[var(--color-border-secondary)]">
+          {DOCUMENTS.map((doc) => (
+            <PDFLink key={doc.href} href={doc.href}>
+              {doc.label}
+            </PDFLink>
+          ))}
         </div>
+
+        <p className="font-body mt-8">
+          <Link
+            href="/teacher-training"
+            className="font-semibold text-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary-hover)]"
+          >
+            Teacher Training
+          </Link>
+        </p>
       </section>
     </>
   );
