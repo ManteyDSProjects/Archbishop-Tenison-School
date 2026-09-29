@@ -56,7 +56,14 @@ function toBlocks(content) {
         blocks.push({ type: "video", src: video[1] });
         continue;
       }
-      const only = token.tokens?.length === 1 ? token.tokens[0] : null;
+      // Ignore trailing hard breaks / whitespace when deciding what the paragraph is.
+      const parts = (token.tokens || []).filter((t) => !(t.type === "br" || (t.type === "text" && !t.text.trim())));
+      const only = parts.length === 1 ? parts[0] : null;
+      if (only?.type === "strong" && only.text.length <= 100 && !only.text.trim().startsWith("(")) {
+        const level = /^(Intent|Implementation|Impact)\b/i.test(only.text.trim()) ? 3 : 2;
+        blocks.push({ type: "html", html: `<h${level}>${marked.parseInline(only.text)}</h${level}>` });
+        continue;
+      }
       if (only?.type === "link" && /^\/documents\/.+\.pdf$/i.test(only.href)) {
         const item = { href: only.href, label: marked.parseInline(only.text) };
         const last = blocks[blocks.length - 1];
