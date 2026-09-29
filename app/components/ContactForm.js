@@ -2,14 +2,6 @@
 
 import { useState } from "react";
 
-function encode(data) {
-  return Object.keys(data)
-    .map(
-      (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-    )
-    .join("&");
-}
-
 const FIELD_CLASS =
   "font-body mt-1 block w-full border border-[var(--color-border-primary)] px-3 py-2 text-[var(--color-text-primary)] focus:border-[var(--color-border-focus)] focus:outline-none focus:ring-1 focus:ring-[var(--color-border-focus)]";
 const LABEL_CLASS =
@@ -32,12 +24,15 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("submitting");
 
-    fetch("/", {
+    // Post to the static form file so Netlify's form handler receives it
+    // (public/netlify-form-contact.html registers the same fields).
+    fetch("/netlify-form-contact.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form }),
+      body: new URLSearchParams(new FormData(e.currentTarget)).toString(),
     })
-      .then(() => {
+      .then((res) => {
+        if (!res.ok) throw new Error("Form submission failed");
         setStatus("success");
         setForm({ name: "", email: "", phone: "", message: "" });
       })
@@ -58,9 +53,15 @@ export default function ContactForm() {
       name="contact"
       onSubmit={handleSubmit}
       data-netlify="true"
+      netlify-honeypot="bot-field"
       className="space-y-4"
     >
       <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>
+          Leave this field empty: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
 
       <div>
         <label htmlFor="name" className={LABEL_CLASS}>
